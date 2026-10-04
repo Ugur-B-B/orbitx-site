@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OrbitX Browser – Privacy Policy</title>
+<style>
+  :root { --bg:#fff; --fg:#1b1b1f; --muted:#5b5b66; --line:#e3e3ea; --accent:#3b5bdb; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14141a; --fg:#ececf1; --muted:#a0a0ad; --line:#2a2a34; --accent:#8da2ff; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:1.9rem; margin:0 0 4px; }
+  h2 { font-size:1.2rem; margin:2rem 0 .5rem; padding-top:1rem; border-top:1px solid var(--line); }
+  p, li { margin:.5rem 0; }
+  .muted { color:var(--muted); font-size:.9rem; }
+  table { border-collapse:collapse; width:100%; margin:.75rem 0; font-size:.93rem; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:rgba(127,127,140,.1); }
+  a { color:var(--accent); }
+  .tablewrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>OrbitX Browser – Privacy Policy</h1>
+<p class="muted">Last updated: 4 October 2026. Applies to OrbitX Browser for Windows (Microsoft Store version and installer version).</p>
+
+<h2>In short</h2>
+<p>OrbitX has no accounts, no analytics, no telemetry and no advertising identifiers. <strong>Nothing is sent to the developer.</strong> Your history, bookmarks, settings and passwords stay on your computer. OrbitX does make some network requests on its own (filter lists, news feeds, search suggestions, site icons). They go directly from your computer to the party named below and contain no account or identifier. This page lists each one and how to switch it off.</p>
+
+<h2>1. Who is responsible</h2>
+<p>Ugur Berk Bozoglu<br>
+Gibichstraße 17<br>
+67547 Worms, Germany<br>
+Email: ugurberkbozoglu@gmail.com</p>
+<p>Because the developer receives no data from the browser, there is no database of user data on the developer's side.</p>
+
+<h2>2. Requests OrbitX makes itself</h2>
+<p>All of these go straight from your computer to the named party. They carry no cookies of OrbitX. The other party necessarily sees your IP address, as with any web request. OrbitX identifies itself as <code>Orbit/&lt;version&gt;</code>, which contains only the version number.</p>
+<div class="tablewrap">
+<table>
+<tr><th>What</th><th>To whom</th><th>What is sent / when</th><th>How to stop it</th></tr>
+<tr>
+  <td>Ad and tracker filter lists</td>
+  <td>List publishers (easylist.to, Adblock Plus, uBlock Origin, Fanboy, AdGuard, Peter Lowe, malware-filter, GitHub, jsDelivr)</td>
+  <td>An ordinary request for a public file, at start and in regular checks (each list about weekly, YouTube lists daily). No identifier.</td>
+  <td>Settings &gt; OrbitX Shield: individual switches, and "Manage filter lists" with one switch per list. The shield can also be turned off per site.</td>
+</tr>
+<tr>
+  <td>Shield scripts (<code>resources.json</code>)</td>
+  <td>GitHub</td>
+  <td>Daily, installer version only. <strong>The Microsoft Store version does not download or use them.</strong></td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>News on the new tab page</td>
+  <td>The news sites whose RSS/Atom feeds are in the built-in catalog, plus feeds you add yourself</td>
+  <td>A request for the feed and its pictures when a new tab page is shown and the feed is older than 30 minutes. Which articles you read is never sent. <strong>On by default; never in private windows.</strong></td>
+  <td>Settings &gt; New tab &gt; "Show news" off. Downloaded news and pictures are deleted immediately.</td>
+</tr>
+<tr>
+  <td>Finding a site's feed</td>
+  <td>The site you enter under "News sources"</td>
+  <td>A few requests to that site, only when you add it.</td>
+  <td>Do not add the source.</td>
+</tr>
+<tr>
+  <td>Address bar suggestions</td>
+  <td>Your chosen search engine (Google, DuckDuckGo, Bing, Brave, Startpage or Ecosia)</td>
+  <td><strong>The text you type in the address bar</strong>, shortly after you pause typing. No cookies. Never in private windows.</td>
+  <td>Settings &gt; Search engine &gt; "Show search suggestions" off.</td>
+</tr>
+<tr>
+  <td>Searching</td>
+  <td>Your chosen search engine</td>
+  <td>Your search text, when you press Enter.</td>
+  <td>Choose another engine.</td>
+</tr>
+<tr>
+  <td>Site icons for the new tab tiles</td>
+  <td>The website you visited</td>
+  <td>A request for that site's icon file, after you visited it in a regular window. Never a third-party icon service. Not done in private windows.</td>
+  <td>Clear browsing data (Browsing history) removes stored icons.</td>
+</tr>
+<tr>
+  <td>Secure DNS (optional)</td>
+  <td>Cloudflare, Quad9 or a server you enter</td>
+  <td>The domain names your browser looks up. Off by default.</td>
+  <td>Settings &gt; Privacy and security &gt; "Use secure DNS".</td>
+</tr>
+<tr>
+  <td>WebView2 download page</td>
+  <td>Microsoft</td>
+  <td>Only if the Microsoft Edge WebView2 Runtime is missing and you answer "Yes" in the dialog.</td>
+  <td>Answer "No".</td>
+</tr>
+</table>
+</div>
+<p>OrbitX does not check for its own updates. The Microsoft Store updates the Store version.</p>
+
+<h2>3. Websites you visit</h2>
+<p>When you open a website, your browser exchanges data with that site, as every browser does. OrbitX's shield blocks many ad and tracker requests and can upgrade connections to HTTPS. You control these under Settings &gt; Privacy and security (tracking prevention, secure connections, fingerprinting protection, WebRTC IP protection) and per site in the shield panel of the address bar. What a website does with your data is governed by that website's own policy.</p>
+
+<h2>4. Microsoft Edge WebView2</h2>
+<p>OrbitX displays web pages using Microsoft Edge WebView2, a component made and updated by Microsoft. Some of its behaviour is outside OrbitX's control:</p>
+<ul>
+  <li>WebView2 fetches component updates (such as certificate revocation lists) from Microsoft.</li>
+  <li>WebView2 may send diagnostic data through Windows' own diagnostic service, according to the diagnostic data setting you chose in Windows. It cannot be changed from inside OrbitX.</li>
+</ul>
+<p>OrbitX switches off WebView2's crash-report upload, Edge's experiment service and SmartScreen. Please see Microsoft's privacy statement for details of what Microsoft processes.</p>
+
+<h2>5. What is stored on your device</h2>
+<p>History, bookmarks, settings, open tabs (for session restore), frequently visited sites with their icons, news cache and chosen news sources, per-site shield settings and filter lists are stored in OrbitX's data folder on your computer. Saved passwords and form data are kept in WebView2's local store on your computer (switches under Settings &gt; Autofill and passwords). OrbitX has no password manager and no sync; nothing is uploaded. If you import from another browser (Settings &gt; On startup), OrbitX reads that browser's bookmarks, history and bookmark icons once, on your request. It does not import passwords, cookies or form data.</p>
+
+<h3>Deleting your data</h3>
+<p>Use "Clear browsing data" (main menu, Ctrl+Shift+Del, or Settings &gt; Privacy and security) and choose a time range and any of: browsing history, cookies and site data, cached files, autofill form data, passwords. It does not remove bookmarks, settings, open tabs, the news cache and "For you" preferences, downloaded files or per-site shield settings. "Show news" off deletes the news cache; "Reset For you" deletes what the news feature learned. Uninstalling the app removes its data folder.</p>
+
+<h3>Private windows</h3>
+<p>In a private window OrbitX does not record history, favicons, closed tabs or the session, does not show news or top sites, does not request address bar suggestions and does not fetch site icons. Cookies and cache in private windows use WebView2's InPrivate mode, which Microsoft designs to discard that data when the last private window closes. Files you download stay on your disk.</p>
+
+<h2>6. Legal basis and your rights</h2>
+<p>The requests in section 2 are needed to provide the features you use (Art. 6(1)(b) GDPR) or, for the optional ones that are on by default, serve the legitimate interest of a working browser (Art. 6(1)(f) GDPR); you can switch them off as described. Since the developer holds no personal data about you, requests for access, correction or deletion would normally have nothing to act on. You may nevertheless contact the address above at any time. You have the right to lodge a complaint with a data protection authority, for example the Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>
+
+<h2>7. Children</h2>
+<p>OrbitX is a general-purpose browser and does not knowingly collect data from anyone, including children.</p>
+
+<h2>8. Changes</h2>
+<p>If a feature changes what is requested or stored, this page will be updated before the change is released and the date at the top will change.</p>
+
+<h2>9. Contact</h2>
+<p>ugurberkbozoglu@gmail.com</p>
+
+<p class="muted"><a href="index.html">OrbitX Browser</a> &middot; <a href="impressum.html">Impressum</a> &middot; <a href="index.html">EN</a> &middot; <a href="de/">DE</a></p>
+
+</main>
+</body>
+</html>
