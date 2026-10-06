@@ -71,3 +71,16 @@ footer {
   justify-content: space-between;
 }
 footer nav { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.button.primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  cursor: pointer;
+  font-weight: 600;
+}
+@media (prefers-color-scheme: dark) { .button.primary { color: #14141a; } }
+/* The QR code is always black on white, in both themes. Desktop only: on a phone the button is enough. */
+.qr { display: none; margin: 1rem 0; width: 160px; text-align: center; }
+.qr img { display: block; border-radius: 8px; border: 1px solid var(--line); }
+.qr figcaption { color: var(--muted); font-size: .85rem; margin-top: 6px; }
+@media (min-width: 700px) { .qr { display: block; } }

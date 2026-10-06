@@ -3,40 +3,341 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OrbitX Browser</title>
-<meta name="description" content="OrbitX Browser is a privacy-first web browser for Windows with a built-in ad and tracker blocker.">
-<link rel="alternate" hreflang="de" href="de/">
-<link rel="stylesheet" href="style.css">
+<meta name="color-scheme" content="light dark">
+<title>Download OrbitX Browser</title>
+<meta name="description" content="Download OrbitX Browser for Windows: a web browser that blocks ads and trackers, needs no account and sends no telemetry.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+:root {
+  --bg: #f9fafc;
+  --card: #ffffff;
+  --fg: #0b1126;
+  --muted: #474e66;
+  --border: #0b1126;
+  --ghost: #eceff5;
+  --brand: #0b4fd6;
+  --brand-hover: #093fae;
+  --on-brand: #ffffff;
+  --navy: #002255;
+  --shadow: 0 40px 80px -30px rgba(11, 17, 38, .35);
+  --soft: rgba(11, 17, 38, .12);
+  --card-2: #f3f6ff;
+  --card-shadow: 0 1px 2px rgba(11, 17, 38, .04), 0 12px 32px -18px rgba(11, 17, 38, .18);
+  --card-shadow-hover: 0 2px 4px rgba(11, 17, 38, .05), 0 24px 48px -20px rgba(11, 79, 214, .35);
+  --t1: #0b4fd6; --t2: #0369a1; --t3: #4338ca; --t4: #0e62b8; --t5: #5b3fd1; --t6: #1d4ed8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0d16;
+    --card: #111625;
+    --fg: #eef0f8;
+    --muted: #a8afc6;
+    --border: #46506f;
+    --ghost: #10141f;
+    --brand: #86a3ff;
+    --brand-hover: #a3b9ff;
+    --on-brand: #0a0d16;
+    --navy: #001a44;
+    --shadow: 0 40px 90px -30px rgba(0, 0, 0, .8);
+    --soft: rgba(255, 255, 255, .12);
+    --card-2: #0e1322;
+    --card-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px -18px rgba(0, 0, 0, .6);
+    --card-shadow-hover: 0 2px 4px rgba(0, 0, 0, .3), 0 24px 48px -20px rgba(134, 163, 255, .35);
+    --t1: #86a3ff; --t2: #6cc4f5; --t3: #a5a0ff; --t4: #7bb8ff; --t5: #b9a2ff; --t6: #93b0ff;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+main { overflow-x: clip; }
+a { color: var(--brand); }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 8px; }
+.skip { position: absolute; left: 16px; top: -80px; z-index: 10; padding: 10px 16px; border-radius: 999px; background: var(--brand); color: var(--on-brand); font-weight: 700; }
+.skip:focus { top: 12px; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -.035em; }
+
+/* Pills */
+.pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 20px; border-radius: 999px;
+  border: 2px solid var(--border); color: var(--fg); background: transparent;
+  font-weight: 700; font-size: .95rem; text-decoration: none;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.pill:hover { background: var(--fg); color: var(--bg); }
+.pill.fill { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.pill.fill:hover { background: var(--brand-hover); border-color: var(--brand-hover); color: var(--on-brand); }
+.pill.big { min-height: 64px; padding: 0 34px; font-size: 1.2rem; }
+
+/* Top bar */
+.top { padding: 18px 0; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--fg); font-weight: 800; font-size: 1.15rem; letter-spacing: -.02em; text-decoration: none; }
+.brand img { display: block; width: 40px; height: 40px; }
+.top nav { display: flex; gap: 10px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding: 40px 0 190px; }
+.ghost {
+  position: absolute; z-index: 0; left: 50%; top: 17%; transform: translateX(-50%);
+  font-size: clamp(6rem, 29vw, 28rem); font-weight: 800; line-height: .8; letter-spacing: -.06em;
+  color: var(--ghost); white-space: nowrap; user-select: none; pointer-events: none;
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: start; }
+h1 { font-size: clamp(3.3rem, 12.5vw, 10rem); line-height: .9; letter-spacing: -.05em; }
+.icon-box {
+  display: grid; place-items: center; width: 168px; height: 168px;
+  border: 2px solid var(--border); border-radius: 32px; background: var(--card);
+}
+.icon-box img { display: block; width: 116px; height: 116px; }
+.lead { max-width: 21em; margin: 36px 0 32px; font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.25; font-weight: 600; letter-spacing: -.02em; }
+.note { max-width: 36em; margin: 26px 0 14px; color: var(--muted); font-size: .95rem; }
+/* Microsoft's badge: unmodified artwork, only scaled with its aspect ratio; no hover effects */
+.badge { display: inline-block; line-height: 0; border-radius: 6px; }
+.badge img { display: block; width: 190px; height: auto; }
+
+/* Browser window */
+.window { position: relative; z-index: 2; max-width: 1320px; margin: -130px auto 0; padding: 0 16px; }
+.frame { border: 2px solid var(--border); border-radius: 18px; overflow: hidden; background: var(--card); box-shadow: var(--shadow); }
+.frame img { display: block; width: 100%; height: auto; }
+
+/* Store card */
+.store { padding: 110px 0 40px; }
+.store-card {
+  display: grid; gap: 40px; align-items: center;
+  padding: 44px; border: 2px solid var(--border); border-radius: 28px; background: var(--card);
+}
+h2 { font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1; }
+.store-card p { max-width: 26em; margin: 18px 0 28px; font-size: 1.2rem; line-height: 1.35; font-weight: 600; letter-spacing: -.01em; }
+.scan { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.qr { display: none; padding: 10px; border: 2px solid var(--border); border-radius: 18px; background: #fff; }
+.qr img { display: block; width: 124px; height: 124px; }
+.scan small { display: block; margin-bottom: 10px; color: var(--muted); font-size: .95rem; }
+.scan .badge img { width: 205px; }
+@media (min-width: 700px) { .qr { display: block; } }
+@media (min-width: 1000px) {
+  .store { padding-top: 150px; }
+  .store-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 56px; }
+  .store-shot { margin: -110px -76px -20px 0; }
+}
+
+/* Features: bento grid, the first card is the featured one */
+.features { padding: 90px 0 110px; }
+.features h2 { margin-bottom: 40px; }
+.cards { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); list-style: none; margin: 0; padding: 0; }
+.card {
+  --tone: var(--t1);
+  display: flex; flex-direction: column;
+  padding: 28px; border: 1px solid var(--soft); border-radius: 28px;
+  background: linear-gradient(160deg, var(--card), var(--card-2));
+  box-shadow: var(--card-shadow);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:nth-child(2) { --tone: var(--t2); }
+.card:nth-child(3) { --tone: var(--t3); }
+.card:nth-child(4) { --tone: var(--t4); }
+.card:nth-child(5) { --tone: var(--t5); }
+.card:nth-child(6) { --tone: var(--t6); }
+.card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--tone) 55%, transparent); box-shadow: var(--card-shadow-hover); }
+.card .ico {
+  display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 22px;
+  border-radius: 16px; color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 14%, transparent);
+}
+.card svg { display: block; width: 26px; height: 26px; }
+.card h3 { font-size: 1.45rem; letter-spacing: -.025em; line-height: 1.15; }
+.card p { margin: 10px 0 0; color: var(--muted); line-height: 1.65; }
+.card.feature { background: radial-gradient(120% 120% at 100% 0%, color-mix(in srgb, var(--tone) 16%, transparent), transparent 60%), linear-gradient(160deg, var(--card), var(--card-2)); }
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card.feature, .card:last-child { grid-column: span 2; }
+}
+@media (min-width: 1000px) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .card:last-child { grid-column: auto; }
+  .card.feature { grid-row: span 2; justify-content: flex-end; padding: 40px; }
+  .card.feature .ico { width: 72px; height: 72px; border-radius: 22px; margin-bottom: auto; }
+  .card.feature svg { width: 36px; height: 36px; }
+  .card.feature h3 { margin-top: 40px; font-size: 2.4rem; line-height: 1.05; }
+  .card.feature p { max-width: 24em; font-size: 1.15rem; }
+}
+
+/* Footer: one flat block */
+footer { background: var(--navy); color: #fff; padding: 72px 0 40px; }
+footer a { color: #fff; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer :focus-visible { outline-color: #fff; }
+.cols { display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.cols h2 { font-size: .85rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: #c9d3ea; margin-bottom: 14px; }
+.cols ul { list-style: none; margin: 0; padding: 0; }
+.cols li { margin: 8px 0; font-weight: 600; }
+.legal { display: flex; align-items: center; gap: 12px; margin-top: 64px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .25); color: #c9d3ea; font-size: .92rem; }
+.legal img { display: block; width: 32px; height: 32px; }
+
+@media (max-width: 699.98px) {
+  .top nav .pill:not(.fill) { display: none; }
+  .hero { padding: 24px 0 120px; }
+  .hero-head { grid-template-columns: minmax(0, 1fr); }
+  .icon-box { width: 84px; height: 84px; border-radius: 20px; }
+  .icon-box img { width: 58px; height: 58px; }
+  .ghost { top: 26%; }
+  .pill.big { width: 100%; }
+  .window { margin-top: -80px; }
+  .frame { border-radius: 12px; }
+  .store { padding-top: 64px; }
+  .store-card { padding: 26px; border-radius: 22px; }
+  .scan, .scan > div, .scan .badge { width: 100%; }
+  .scan .badge img { width: 100%; }
+  .features { padding: 64px 0 80px; }
+}
+
+/* Scroll fade-in only where scroll timelines exist; everything is visible without them */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+    @keyframes reveal { from { opacity: 0; translate: 0 28px; } to { opacity: 1; translate: 0 0; } }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pill, .card { transition: none; }
+  .card:hover { transform: none; }
+}
+</style>
 </head>
 <body>
-<main>
-  <h1>OrbitX Browser</h1>
-  <p class="lead">A privacy-first web browser with a built-in ad and tracker blocker, no accounts and nothing sent to the developer.</p>
+<a class="skip" href="#features">Skip to features</a>
 
-  <h2>Download for Windows</h2>
-  <div class="buttons">
-    <span class="button" aria-disabled="true">Microsoft Store <span class="badge">Coming soon</span></span>
-    <span class="button" aria-disabled="true">Direct download (.exe) <span class="badge">Coming soon</span></span>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="OrbitX Browser, home">
+      <img src="img/icon.webp" width="40" height="40" alt="">
+      OrbitX
+    </a>
+    <nav aria-label="Main">
+      <a class="pill" href="#features">Features</a>
+      <a class="pill fill" href="https://apps.microsoft.com/detail/9P6VPC9CGHZQ" target="_blank" rel="noopener">Get OrbitX</a>
+    </nav>
   </div>
-  <p class="muted">Requires the Microsoft Edge WebView2 Runtime (included with Windows 11).</p>
+</header>
 
-  <h2>Other platforms</h2>
-  <ul class="platforms">
-    <li><span>Android</span><span>Coming soon</span></li>
-    <li><span>macOS</span><span>Coming soon</span></li>
-    <li><span>iOS</span><span>Coming soon</span></li>
-    <li><span>Linux</span><span>Planned</span></li>
-  </ul>
+<main>
+  <div class="hero">
+    <div class="ghost" aria-hidden="true">OrbitX</div>
+    <div class="wrap">
+      <div class="hero-head">
+        <h1>Download OrbitX</h1>
+        <div class="icon-box"><img src="img/icon.webp" width="116" height="116" alt="OrbitX Browser icon"></div>
+      </div>
+      <p class="lead">OrbitX blocks ads and trackers, needs no account and sends no telemetry.</p>
+      <a class="pill fill big" href="https://apps.microsoft.com/detail/9P6VPC9CGHZQ" target="_blank" rel="noopener">Get OrbitX for Windows</a>
+      <p class="note">Requires the Microsoft Edge WebView2 Runtime (included with Windows 11).<br>Or get it directly from the Microsoft Store:</p>
+      <a class="badge" href="https://apps.microsoft.com/detail/9P6VPC9CGHZQ" target="_blank" rel="noopener">
+        <img src="img/ms-store-badge.svg" width="161" height="44" alt="Download from the Microsoft Store">
+      </a>
+    </div>
+  </div>
+
+  <div class="window">
+    <div class="frame">
+      <img src="img/hero.webp" width="1264" height="792" alt="The OrbitX Browser window on its new tab page: a photo background, top sites, a search box and the OrbitX Shield counters for blocked trackers and ads.">
+    </div>
+  </div>
+
+  <section class="store" aria-labelledby="store-h">
+    <div class="wrap">
+      <div class="store-card reveal">
+        <div>
+          <h2 id="store-h">OrbitX on the Microsoft Store</h2>
+          <p>Installs and updates through the Store. Scan the code to open the Store page on another device, or follow the badge.</p>
+          <div class="scan">
+            <div class="qr"><img src="qr-store.svg" width="124" height="124" alt="QR code for the OrbitX Browser page in the Microsoft Store"></div>
+            <div>
+              <small>Scan to open in Microsoft Store</small>
+              <a class="badge" href="https://apps.microsoft.com/detail/9P6VPC9CGHZQ" target="_blank" rel="noopener">
+                <img src="img/ms-store-badge.svg" width="161" height="44" loading="lazy" alt="Download from the Microsoft Store">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="store-shot frame">
+          <img src="img/shot-privacy.webp" width="960" height="602" loading="lazy" alt="OrbitX settings, Privacy and security page: tracking prevention, secure connections, fingerprinting protection, WebRTC and secure DNS.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features" aria-labelledby="features-h">
+    <div class="wrap">
+      <h2 id="features-h" class="reveal">What you get</h2>
+      <ul class="cards">
+        <li class="card feature reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.3 7.8 8 9 4.7-1.2 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Ad &amp; tracker blocking</h3>
+          <p>OrbitX Shield blocks ads and trackers on the sites you visit.</p>
+        </li>
+        <li class="card reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/><path d="m4 4 16 16"/></svg></span>
+          <h3>No accounts</h3>
+          <p>Nothing to sign up for. Your bookmarks and history stay on your device.</p>
+        </li>
+        <li class="card reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/><path d="m3 3 18 18"/></svg></span>
+          <h3>No telemetry</h3>
+          <p>No usage data and no browsing history is sent to the developer.</p>
+        </li>
+        <li class="card reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3>HTTPS-only &amp; fingerprint protection</h3>
+          <p>Optional HTTPS-only mode, and protection against browser fingerprinting.</p>
+        </li>
+        <li class="card reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="m4 4 16 16"/></svg></span>
+          <h3>Private windows</h3>
+          <p>Nothing is saved to history, and cookies are dropped when the last private window closes.</p>
+        </li>
+        <li class="card reveal">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+          <h3>Built to stay light</h3>
+          <p>Tabs you are not using go to sleep to free memory.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 </main>
+
 <footer>
-  <nav>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="impressum.html">Impressum</a>
-  </nav>
-  <nav aria-label="Language">
-    <strong>EN</strong>
-    <a href="de/" hreflang="de" lang="de">DE</a>
-  </nav>
+  <div class="wrap">
+    <div class="cols">
+      <nav aria-labelledby="f-product">
+        <h2 id="f-product">Product</h2>
+        <ul>
+          <li><a href="https://apps.microsoft.com/detail/9P6VPC9CGHZQ" target="_blank" rel="noopener">Download</a></li>
+          <li><a href="#features">Features</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-legal">
+        <h2 id="f-legal">Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="legal">
+      <img src="img/icon.webp" width="32" height="32" loading="lazy" alt="">
+      <span>&copy; OrbitX Browser</span>
+    </div>
+  </div>
 </footer>
 </body>
 </html>
