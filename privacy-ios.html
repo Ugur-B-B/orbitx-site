@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OrbitX for iOS – Privacy Policy</title>
+<meta name="description" content="Privacy policy of OrbitX Browser for iPhone.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+  :root { --bg:#fff; --fg:#1b1b1f; --muted:#5b5b66; --line:#e3e3ea; --accent:#3b5bdb; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14141a; --fg:#ececf1; --muted:#a0a0ad; --line:#2a2a34; --accent:#8da2ff; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:1.9rem; margin:0 0 4px; }
+  h2 { font-size:1.2rem; margin:2rem 0 .5rem; padding-top:1rem; border-top:1px solid var(--line); }
+  p, li { margin:.5rem 0; }
+  .muted { color:var(--muted); font-size:.9rem; }
+  table { border-collapse:collapse; width:100%; margin:.75rem 0; font-size:.93rem; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:rgba(127,127,140,.1); }
+  a { color:var(--accent); }
+  .tablewrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>OrbitX for iOS – Privacy Policy</h1>
+<p class="muted">Last updated: 17 October 2026. Applies to OrbitX Browser for iPhone (App Store version). The Windows version has <a href="privacy.html">its own privacy policy</a>.</p>
+
+<h2>In short</h2>
+<p>OrbitX has no accounts, no analytics, no crash reporting, no advertising and no third-party SDKs. <strong>Nothing is sent to the developer</strong>, and the developer runs no server that could receive your data. In App Store terms: <strong>Data Not Collected</strong>. Your history, bookmarks, settings and passwords stay on your iPhone. OrbitX does make a few network requests on its own (filter lists, site icons, and optional features you switch on). They go directly from your iPhone to the party named below and contain no account, device identifier or usage statistics. This page lists each one.</p>
+
+<h2>1. Who is responsible</h2>
+<p>Ugur Berk Bozoglu, Worms, Germany (full address in the <a href="impressum.html">Impressum</a>)<br>
+Email: <a href="mailto:ugurberkbozoglu@gmail.com">ugurberkbozoglu@gmail.com</a></p>
+<p>Because the developer receives no data from the app, there is no database of user data on the developer's side.</p>
+
+<h2>2. Requests OrbitX makes itself</h2>
+<p>All of these go straight from your iPhone to the named party, over HTTPS, without cookies. The other party necessarily sees your IP address, as with any web request. OrbitX does not check for its own updates; app updates come through the App Store.</p>
+<div class="tablewrap">
+<table>
+<tr><th>What</th><th>To whom</th><th>What is sent / when</th><th>How to stop it</th></tr>
+<tr>
+  <td>Ad and tracker filter lists</td>
+  <td>The list publishers: easylist.to (EasyList, EasyPrivacy), ublockorigin.github.io (uBlock Origin lists), pgl.yoyo.org (Peter Lowe's list). Optional lists you turn on yourself, such as regional lists, come from their own public hosts.</td>
+  <td>An ordinary download of a public file. <strong>Only after you agree on first launch</strong>; if you choose to turn ad blocking off there, nothing is downloaded. Afterwards each list is checked about once a week while the app is open, and when you tap "Update now". No identifier.</td>
+  <td>Settings &gt; Ad blocking: switch off the shield or individual lists.</td>
+</tr>
+<tr>
+  <td>Shield scripts (<code>resources.json</code>): scripts that only the filter rules call and that are injected into web pages to remove ads</td>
+  <td>GitHub (the developer's public repository, served by GitHub)</td>
+  <td>Same consent and schedule as the filter lists. GitHub may show a total download count, which identifies nobody.</td>
+  <td>Settings &gt; Ad blocking.</td>
+</tr>
+<tr>
+  <td>Site icons (favicons)</td>
+  <td>The website you visited, or the icon address that website names</td>
+  <td>A request for that site's icon file when a page loads and the stored icon is older than 7 days. Fetched directly from the site, never through a third-party icon service, and without cookies. Icons seen in private tabs are shown but never saved.</td>
+  <td>Settings &gt; Privacy and security &gt; "Clear browsing data".</td>
+</tr>
+<tr>
+  <td>Search suggestions</td>
+  <td>Your chosen search engine (DuckDuckGo, Brave or Google; Startpage has none)</td>
+  <td><strong>Off by default.</strong> If you switch them on, the text you type in the address bar is sent to that search engine. No cookies. Never in private tabs.</td>
+  <td>Settings &gt; Privacy and security: search suggestions off.</td>
+</tr>
+<tr>
+  <td>News card on the start page</td>
+  <td>Only the RSS/Atom feeds you add yourself</td>
+  <td><strong>Off by default.</strong> No request at all until you turn news on and add a source. Feeds are checked at most every 30 minutes while the start page is shown. Pictures are not loaded. Never in private tabs.</td>
+  <td>Settings &gt; News: off.</td>
+</tr>
+<tr>
+  <td>Translate page</td>
+  <td>Google Translate (translate.google.com)</td>
+  <td>Only when you choose "Translate" in the menu, after a one-time confirmation. <strong>The address of the page is sent to Google</strong>, which then loads and translates the page.</td>
+  <td>Do not use "Translate". The confirmation can be withdrawn under Settings &gt; Privacy and security (Google Translate).</td>
+</tr>
+</table>
+</div>
+
+<h2>3. Websites you visit</h2>
+<p>When you open a website or search, your browser exchanges data with that site or with your search engine (DuckDuckGo by default), as every browser does. OrbitX's shield blocks many ad and tracker requests. When you download a file, the request to the file's server carries the page's cookies, so that downloads behind a login work; this is ordinary browser behaviour. What a website does with your data is governed by that website's own policy.</p>
+
+<h2>4. Camera, microphone and location</h2>
+<p>OrbitX only uses the camera, microphone or location when a website asks for them. You are asked for each website, and you can change your choice in the site settings. The iOS permission is requested only after you allow a website. OrbitX itself does not record, store or send this data; it goes only to the website you allowed.</p>
+
+<h2>5. What is stored on your iPhone</h2>
+<p>History, bookmarks, shortcuts, open tabs, settings, per-site settings, the list of downloads, site icons, filter lists and saved passwords are stored on your iPhone and are never uploaded by OrbitX. There is no sync. The app's data folder (history, passwords, downloads list, site icons, news cache, filter lists) is excluded from iCloud and device backups.</p>
+
+<h3>Saved passwords</h3>
+<p>Saved passwords are encrypted with AES-256-GCM. The key is created on your iPhone and kept in the iOS Keychain, available only while the device is unlocked and never leaving this device. Viewing or filling a password requires Face ID, Touch ID or your device passcode. Passwords are offered only on the exact website (origin) where they were saved. If you export a backup, the file is encrypted with a password you choose; where you keep that file is up to you. A copied password is removed from the clipboard after 30 seconds and is not shared with your other devices.</p>
+
+<h3>Private tabs</h3>
+<p>Private tabs do not save history, search suggestions, passwords, site icons or tabs. Cookies and site data from private tabs are kept in memory only, shared only between private tabs of the same session, and discarded when you close the last private tab. When you switch away from the app during a private session, the screen is covered so that the app switcher snapshot does not show the page. Files you download stay on your iPhone.</p>
+
+<h3>Deleting your data</h3>
+<p>Use Settings &gt; Privacy and security &gt; "Clear browsing data", or delete individual entries in History, Bookmarks, Downloads and the password vault. Deleting the app removes all of its data.</p>
+
+<h2>6. Legal basis and your rights</h2>
+<p>The requests in section 2 are needed to provide the features you use (Art. 6(1)(b) GDPR); the optional ones are off until you switch them on. Since the developer holds no personal data about you, requests for access, correction or deletion would normally have nothing to act on. You may nevertheless contact the address above at any time. You have the right to lodge a complaint with a data protection authority, for example the Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>
+
+<h2>7. Children</h2>
+<p>OrbitX is a general-purpose browser and is not directed to children. It does not knowingly collect data from anyone, including children.</p>
+
+<h2>8. Changes</h2>
+<p>If a feature changes what is requested or stored, this page will be updated before the change is released and the date at the top will change.</p>
+
+<h2>9. Contact</h2>
+<p><a href="mailto:ugurberkbozoglu@gmail.com">ugurberkbozoglu@gmail.com</a></p>
+
+<p class="muted"><a href="index.html">OrbitX Browser</a> &middot; <a href="support-ios.html">Support – iOS</a> &middot; <a href="impressum.html">Impressum</a></p>
+
+</main>
+</body>
+</html>

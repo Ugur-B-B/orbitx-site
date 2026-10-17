@@ -3,6 +3,7 @@
 Static site (plain HTML and one CSS file; no JavaScript, cookies or external resources).
 
 - `index.html` (English only), `privacy.html`, `impressum.html`
+- `privacy-ios.html`, `support-ios.html`: privacy policy and support page of the iPhone app (same inline style as `privacy.html`)
 - `index.html` has its own inline CSS, `img/` (WebP screenshots `hero.webp` and `shot-privacy.webp`, the app icon, Microsoft's official Store badge: never edit that file), `favicon-32.png`, `apple-touch-icon.png` and `qr-store.svg`
 - `style.css`: the stylesheet of `privacy.html` and `impressum.html` (light and dark follow the system)
 - `.nojekyll`: tells GitHub Pages to serve the files as they are
